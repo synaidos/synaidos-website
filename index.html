@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#07100f">
-  <title>ShelfSense by Synaidos | Measure the shelf that was actually built</title>
+  <title>ShelfSense by SynAIdos | Measure the shelf that was actually built</title>
   <meta name="description" content="Sales data says what moved. Nothing says what fits. ShelfSense measures the fixture that was actually built, and what is on it, from a phone pass on a visit someone already makes.">
-  <meta property="og:title" content="ShelfSense by Synaidos">
+  <meta property="og:title" content="ShelfSense by SynAIdos">
   <meta property="og:description" content="Sales data says what moved. Nothing says what fits. Physical shelf measurement from a phone pass, without fixed cameras or shelf sensors.">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/png" href="myicon.png">
@@ -79,8 +79,14 @@
     .window-heading small,.metric-label,.shelf-axis,.legend,.phone-readout small { color:var(--faint); font-size:.66rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
     .window-heading h2 { margin:5px 0 0; font-size:1.25rem; letter-spacing:-.03em; }
     .capture-tag { padding:7px 10px; border:1px solid var(--line); border-radius:999px; color:var(--muted); font-size:.67rem; font-weight:700; }
+    .bay3d { display:block; width:100%; aspect-ratio:1.42; margin:0 0 12px; border:1px solid var(--line); border-radius:18px; background:radial-gradient(circle at 50% 30%,rgba(81,230,176,.06),transparent 70%),#08100e; cursor:pointer; }
+    .shelf-picker { display:flex; gap:6px; margin-bottom:12px; }
+    .shelf-picker button { flex:1; min-height:34px; padding:0 4px; border:1px solid var(--line); border-radius:999px; color:var(--muted); background:transparent; font-size:.72rem; font-weight:800; cursor:pointer; }
+    .shelf-picker button[aria-pressed="true"] { border-color:rgba(81,230,176,.6); color:#05110d; background:var(--mint); }
+    .shelf-caption { margin-bottom:9px; color:var(--faint); font-size:.66rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    .shelf-caption span { color:var(--mint); }
     .shelf-frame { padding:18px 18px 14px; border:1px solid var(--line); border-radius:18px; background:linear-gradient(rgba(105,184,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(105,184,255,.025) 1px,transparent 1px),#08100e; background-size:20px 20px; }
-    .shelf-grid { display:grid; grid-template-columns:repeat(10,minmax(18px,1fr)); grid-template-rows:repeat(6,31px); gap:5px; }
+    .shelf-grid { display:grid; grid-template-columns:repeat(10,minmax(18px,1fr)); grid-template-rows:repeat(6,22px); gap:4px; }
     .slot { position:relative; overflow:hidden; border:1px solid transparent; border-radius:7px; }
     .slot::after { content:""; position:absolute; inset:4px 7px 3px; border:1px solid rgba(255,255,255,.17); border-radius:50% 50% 35% 35%; }
     .slot.stocked { background:rgba(81,230,176,.74); }
@@ -172,6 +178,19 @@
     .footer-inner { display:flex; justify-content:space-between; gap:30px; padding-top:26px; border-top:1px solid var(--line); color:var(--faint); font-size:.76rem; }
     .footer-brand { color:var(--ink); font-family:"Space Grotesk"; font-weight:700; }
 
+    .name-note { border-bottom:1px solid var(--line); background:rgba(81,230,176,.035); }
+    .name-note p { margin:0; padding:13px 0; color:var(--muted); font-size:.86rem; line-height:1.6; text-align:center; }
+    .name-note .greek { color:var(--ink); font-family:"Space Grotesk",system-ui,sans-serif; font-size:1rem; font-weight:600; }
+    .name-note .brandword { color:var(--ink); font-weight:800; } .name-note .brandword b { color:var(--mint); }
+    .film-section { padding-top:40px; }
+    .film-wide { margin:0; }
+    .film-wide-frame { position:relative; overflow:hidden; aspect-ratio:16/9; border:1px solid var(--line2); border-radius:28px; background:#000; box-shadow:var(--shadow); }
+    .film-wide-frame video { display:block; width:100%; height:100%; object-fit:cover; }
+    .film-sound { position:absolute; left:50%; bottom:22px; transform:translateX(-50%); min-height:44px; padding:.7rem 1.1rem; border:1px solid var(--line2); border-radius:999px; color:var(--ink); background:rgba(7,16,15,.82); backdrop-filter:blur(10px); font-size:.85rem; font-weight:800; cursor:pointer; white-space:nowrap; }
+    .film-sound:hover { border-color:var(--mint); }
+    .film-sound[hidden] { display:none; }
+    .film-wide figcaption { margin-top:14px; color:var(--faint); font-size:.82rem; text-align:center; }
+    .film-wide figcaption a { color:var(--mint); font-weight:800; }
     @media (max-width:1060px) {
       .hero-grid,.workflow-grid,.proof-grid,.boundaries-grid,.pilot-panel { grid-template-columns:1fr; }
       .hero-copy { max-width:760px; } h1 { max-width:11ch; } .product-window { max-width:760px; transform:none; }
@@ -188,7 +207,7 @@
       h1 { font-size:clamp(2.6rem,12.5vw,4rem); } .hero-copy>p { font-size:1rem; }
       .hero-actions .button,.cta-actions .button { width:100%; } .signal-row { display:grid; grid-template-columns:1fr 1fr; gap:13px; }
       .product-window { border-radius:20px; } .window-bar { padding:0 15px; } .window-body { padding:15px; } .capture-tag { display:none; }
-      .shelf-frame { padding:12px; } .shelf-grid { grid-template-rows:repeat(6,24px); gap:3px; } .slot::after { inset:3px 4px 2px; }
+      .shelf-frame { padding:12px; } .shelf-grid { grid-template-rows:repeat(6,18px); gap:3px; } .shelf-picker button { font-size:0; } .shelf-picker button::after { content:attr(data-n); font-size:.75rem; } .slot::after { inset:3px 4px 2px; }
       .window-metrics,.score-grid { grid-template-columns:1fr; } .window-metric { min-height:0; }
       .section-heading h2,.proof-copy h2,.boundary-copy h2,.cta-copy h2 { font-size:clamp(2.35rem,12vw,3.5rem); }
       .workflow-visual { min-height:540px; } .phone { width:220px; height:450px; }
@@ -197,7 +216,7 @@
       .score:nth-last-child(-n+2) { border-bottom:1px solid var(--line); }
       .score:last-child { border-bottom:0; }
       .boundary-item { grid-template-columns:12px 1fr; } .boundary-item small { grid-column:2; max-width:none; text-align:left; }
-      .pilot { padding-top:32px; } .pilot-panel { gap:38px; padding:34px 22px; border-radius:26px; }
+      .pilot { padding-top:32px; } .film-wide-frame { aspect-ratio:9/16; max-width:420px; margin:0 auto; border-radius:26px; } .pilot-panel { gap:38px; padding:34px 22px; border-radius:26px; }
       .footer-inner { align-items:flex-start; flex-direction:column; gap:10px; }
     }
     @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition-duration:.01ms; } }
@@ -206,20 +225,21 @@
 <body>
   <header class="site-header">
     <div class="shell header-inner">
-      <a class="brand" href="#top" aria-label="Synaidos ShelfSense home"><img src="synaidos-logo.png" alt="Synaidos" width="204" height="213"></a>
+      <a class="brand" href="#top" aria-label="SynAIdos ShelfSense home"><img src="synaidos-logo.png" alt="SynAIdos" width="204" height="213"></a>
       <nav class="desktop-nav" aria-label="Primary navigation">
-        <a href="#optics">Why cameras miss it</a><a href="#who">Who it's for</a><a href="#how-it-works">How it works</a><a href="#evidence">Evidence</a>
+        <a href="#optics">Why cameras miss it</a><a href="#who">Who it's for</a><a href="#how-it-works">How it works</a><a href="#evidence">Evidence</a><a href="pilot/">Pilot programs</a>
       </nav>
       <a class="button primary header-cta" href="#send-a-bay">Send us one bay</a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
       <div class="mobile-nav" id="mobile-nav" data-open="false">
-        <nav aria-label="Mobile navigation"><a href="#optics">Why cameras miss it</a><a href="#who">Who it's for</a><a href="#how-it-works">How it works</a><a href="#evidence">Evidence</a></nav>
+        <nav aria-label="Mobile navigation"><a href="#optics">Why cameras miss it</a><a href="#who">Who it's for</a><a href="#how-it-works">How it works</a><a href="#evidence">Evidence</a><a href="pilot/">Pilot programs</a></nav>
         <a class="button primary" href="#send-a-bay">Send us one bay</a>
       </div>
     </div>
   </header>
 
   <main id="top">
+    <aside class="name-note" aria-label="About the name"><div class="shell"><p><span class="greek" lang="el">σύνειδος</span> (syneidos) is Greek for <em>conscious</em>: <em>syn</em>, together, and <em>eidos</em>, what is seen. Put AI at its heart and it becomes <span class="brandword">Syn<b>AI</b>doS</span>.</p></div></aside>
     <section class="hero" aria-labelledby="hero-title">
       <div class="shell hero-grid">
         <div class="hero-copy">
@@ -233,7 +253,10 @@
         <div class="product-window" aria-label="Illustrative ShelfSense bay report">
           <div class="window-bar"><div class="window-brand"><span class="window-mark">S</span> ShelfSense</div><div class="scan-state">Scan accepted</div></div>
           <div class="window-body">
-            <div class="window-heading"><div><small>Physical observation</small><h2>Beverage bay · 10 lanes</h2></div><span class="capture-tag">Guided phone capture</span></div>
+            <div class="window-heading"><div><small>Physical observation</small><h2>One bay · 5 shelves × 10 lanes</h2></div><span class="capture-tag">Simulated visualization</span></div>
+            <canvas class="bay3d" id="bay3d" aria-hidden="true"></canvas>
+            <div class="shelf-picker" role="group" aria-label="Choose a shelf"><button type="button" data-shelf="0">Shelf 1</button><button type="button" data-shelf="1">Shelf 2</button><button type="button" data-shelf="2" aria-pressed="true">Shelf 3</button><button type="button" data-shelf="3">Shelf 4</button><button type="button" data-shelf="4">Shelf 5</button></div>
+            <div class="shelf-caption"><span id="shelf-name">Shelf 3 of 5</span> · seen from above, back row at the top</div>
             <div class="shelf-frame">
               <div class="shelf-grid" aria-hidden="true">
                 <span class="slot stocked"></span><span class="slot stocked"></span><span class="slot stocked"></span><span class="slot gap"></span><span class="slot stocked"></span><span class="slot stocked"></span><span class="slot stocked"></span><span class="slot stocked"></span><span class="slot unknown"></span><span class="slot stocked"></span>
@@ -243,12 +266,27 @@
                 <span class="slot stocked"></span><span class="slot stocked"></span><span class="slot stocked"></span><span class="slot stocked"></span><span class="slot gap"></span><span class="slot gap"></span><span class="slot stocked"></span><span class="slot stocked"></span><span class="slot unknown"></span><span class="slot unknown"></span>
                 <span class="slot stocked"></span><span class="slot stocked"></span><span class="slot stocked"></span><span class="slot stocked"></span><span class="slot stocked"></span><span class="slot gap"></span><span class="slot stocked"></span><span class="slot unknown"></span><span class="slot unknown"></span><span class="slot unknown"></span>
               </div>
-              <div class="shelf-axis"><span>Front</span><span>Depth row 6</span></div>
+              <div class="shelf-axis"><span>Lane 1</span><span>Front edge</span><span>Lane 10</span></div>
             </div>
             <div class="legend" aria-label="Shelf report legend"><span><i style="--c:var(--mint)"></i>Stocked</span><span><i style="--c:var(--coral)"></i>Gap</span><span><i style="--c:var(--unknown)"></i>Unknown</span></div>
             <div class="window-metrics"><div class="window-metric"><span class="metric-label">Capture quality</span><strong class="good">Accepted</strong></div><div class="window-metric"><span class="metric-label">Shelf geometry</span><strong>Recovered</strong></div><div class="window-metric"><span class="metric-label">Output</span><strong>Evidence-backed</strong></div></div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="film-section" id="film-section" aria-labelledby="film-title">
+      <div class="shell">
+        <div class="section-heading"><div><div class="section-kicker">One walk, one bay</div><h2 id="film-title">Watch a bay become a record.</h2></div><p>One phone, one walk down a real store aisle. Every cap found, every bottle and case placed in 3D, and the empty lanes marked. The store-wide and chain-wide views at the end are illustrations.</p></div>
+        <figure class="film-wide">
+          <div class="film-wide-frame">
+            <video id="film" muted loop playsinline preload="metadata" poster="media/shelfsense-film-wide-poster.jpg" aria-label="ShelfSense film: one phone walk down a store bay, rebuilt in 3D">
+              <source src="media/shelfsense-film-wide.mp4" type="video/mp4">
+            </video>
+            <button class="film-sound" id="film-sound" type="button">▶ Play with sound</button>
+          </div>
+          <figcaption>57 seconds · <a href="pilot/">See how a pilot works →</a></figcaption>
+        </figure>
       </div>
     </section>
 
@@ -268,7 +306,7 @@
         <div class="section-heading"><div><div class="section-kicker">Who it's for</div><h2 id="who-title">The same measurement, three different problems.</h2></div><p>Every ShelfSense pass produces one portable record: slot status, count ranges, and fixture geometry. What it is worth depends on what you already have.</p></div>
         <div class="output-grid">
           <article class="output-card buyer-card"><span class="output-icon">CV</span><h3>Shelf-vision and measurement vendors</h3><p>Your cameras see the front. ShelfSense adds the depth and fixture geometry a fixed mount cannot reach, so your customers get the complete shelf.</p><a class="buyer-ask" href="mailto:hello@synaidos.com?subject=ShelfSense%20%E2%80%94%20one%20bay%20your%20cameras%20cover">Send one bay your cameras already cover</a></article>
-          <article class="output-card buyer-card"><span class="output-icon">OP</span><h3>Retailers and c-store operators</h3><p>Cooler vaults and gravity-feed resets measured as built, so planograms and availability resolve against the capacity that is really there.</p><a class="buyer-ask" href="mailto:hello@synaidos.com?subject=ShelfSense%20%E2%80%94%20one%20planogram%20and%20bay">Send one planogram and its bay</a></article>
+          <article class="output-card buyer-card"><span class="output-icon">OP</span><h3>Retailers and c-store operators</h3><p>Shelf resets, coolers and endcaps measured as built, so planograms and availability resolve against the capacity that is really there.</p><a class="buyer-ask" href="mailto:hello@synaidos.com?subject=ShelfSense%20%E2%80%94%20one%20planogram%20and%20bay">Send one planogram and its bay</a></article>
           <article class="output-card buyer-card"><span class="output-icon">FX</span><h3>Fixture makers and installers</h3><p>Check that what went in matches what was specified, lane by lane, without a second site visit or a tape measure.</p><a class="buyer-ask" href="mailto:hello@synaidos.com?subject=ShelfSense%20%E2%80%94%20one%20install%20spec">Send one install spec</a></article>
         </div>
       </div>
@@ -306,16 +344,16 @@
 
     <section class="proof" id="evidence" aria-labelledby="evidence-title">
       <div class="shell proof-grid">
-        <div class="proof-copy"><div class="section-kicker">Evidence, under NDA</div><h2 id="evidence-title">Blind-tested against a hand count.</h2><p>Every prediction is frozen before the hand count exists, then scored against it. Positions the system declined to answer are scored too, not quietly dropped. Results are shared under NDA with design partners.</p></div>
+        <div class="proof-copy"><div class="section-kicker">Open results, guarded method</div><h2 id="evidence-title">Blind-tested against a hand count.</h2><p>Every prediction is frozen before the hand count exists, then scored against it. Positions the system declined to answer are scored too, not quietly dropped. The scored results are yours to see and share in full; the capture and measurement method behind them is proprietary.</p></div>
         <div class="scorecard" aria-label="ShelfSense validation scope">
           <div class="scorecard-head"><strong>Validation scope</strong><span class="blind-badge">Blind protocol</span></div>
           <div class="score-grid">
-            <div class="score"><span>Fixture</span><strong class="scope-value">Gravity-feed beverage shelving</strong></div>
+            <div class="score"><span>Fixture</span><strong class="scope-value">Retail product shelving</strong></div>
             <div class="score"><span>Ground truth</span><strong class="scope-value">Hand count, taken after</strong></div>
             <div class="score"><span>Prediction</span><strong class="scope-value">Frozen before truth exists</strong></div>
-            <div class="score primary-score"><span>Results</span><strong class="scope-value">Available under NDA</strong></div>
+            <div class="score primary-score"><span>Results</span><strong class="scope-value">Shared in full</strong></div>
           </div>
-          <div class="range-result"><strong>Design partners</strong> see the full scored results, including where the system said “unknown” and why.</div>
+          <div class="range-result"><strong>Every pilot</strong> gets the full scored report, including where the system said “unknown” and why. The method stays ours.</div>
         </div>
       </div>
     </section>
@@ -335,18 +373,85 @@
 
     <section class="pilot" id="send-a-bay" aria-labelledby="pilot-title">
       <div class="shell"><div class="pilot-panel">
-        <div class="cta-copy"><div class="section-kicker">Start with one bay</div><h2 id="pilot-title">Send us one bay.</h2><p>One planogram and the bay it was drawn for. We send back what the fixture actually holds, before you tell us what you expected.</p><div class="cta-actions"><a class="button primary" href="mailto:hello@synaidos.com?subject=ShelfSense%20%E2%80%94%20one%20bay">Send one bay</a><a class="button secondary" href="mailto:hello@synaidos.com?subject=ShelfSense%20%E2%80%94%20results%20under%20NDA">Request results under NDA</a></div></div>
-        <aside class="pilot-includes" aria-label="What sending a bay involves"><h3>What it takes:</h3><ul><li>One bay of gravity-feed beverage shelving</li><li>The planogram or spec it was drawn from</li><li>No hardware, no install, no commitment</li><li>Back: what the fixture holds, with unknowns marked</li></ul></aside>
+        <div class="cta-copy"><div class="section-kicker">Start with one bay</div><h2 id="pilot-title">Send us one bay.</h2><p>One planogram and the bay it was drawn for. We send back what the fixture actually holds, before you tell us what you expected. Pilot programs, from one bay to several stores, are laid out on the pilot page.</p><div class="cta-actions"><a class="button primary" href="pilot/">See pilot programs</a><a class="button secondary" href="mailto:hello@synaidos.com?subject=ShelfSense%20%E2%80%94%20a%20scored%20report">Ask for a scored report</a></div></div>
+        <aside class="pilot-includes" aria-label="What sending a bay involves"><h3>What it takes:</h3><ul><li>One bay of retail product shelving</li><li>The planogram or spec it was drawn from</li><li>No hardware, no install, no commitment</li><li>Back: what the fixture holds, with unknowns marked</li></ul></aside>
       </div></div>
     </section>
   </main>
 
-  <footer class="footer"><div class="shell footer-inner"><span class="footer-brand">ShelfSense by Synaidos</span><span>&copy; <span id="year"></span> Synaidos</span></div></footer>
+  <footer class="footer"><div class="shell footer-inner"><span class="footer-brand">ShelfSense by SynAIdos</span><span>&copy; <span id="year"></span> SynAIdos</span></div></footer>
   <script>
     const toggle=document.querySelector(".menu-toggle"),nav=document.querySelector("#mobile-nav");
     function setMenu(open){if(!toggle||!nav)return;nav.dataset.open=String(open);toggle.setAttribute("aria-expanded",String(open));toggle.textContent=open?"Close":"Menu";document.body.classList.toggle("menu-open",open)}
     if(toggle&&nav){toggle.addEventListener("click",()=>setMenu(nav.dataset.open!=="true"));nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>setMenu(false)));document.addEventListener("keydown",e=>{if(e.key==="Escape")setMenu(false)});window.addEventListener("resize",()=>{if(innerWidth>820)setMenu(false)})}
     document.querySelector("#year").textContent=new Date().getFullYear();
+    // the film plays muted while on screen (not for reduced motion); phones get the vertical cut; the button restarts it with sound
+    (function(){
+      const film=document.querySelector("#film"),sound=document.querySelector("#film-sound");if(!film)return;
+      if(matchMedia("(max-width:620px)").matches){film.poster="media/shelfsense-film-poster.jpg";film.src="media/shelfsense-film-vertical.mp4"}
+      if("IntersectionObserver" in window&&!matchMedia("(prefers-reduced-motion: reduce)").matches)
+        new IntersectionObserver(es=>es.forEach(e=>{if(!film.muted)return;e.isIntersecting?film.play().catch(()=>{}):film.pause()}),{threshold:.4}).observe(film);
+      if(sound)sound.addEventListener("click",()=>{film.muted=false;film.loop=false;film.currentTime=0;film.controls=true;film.play();sound.hidden=true});
+    })();
+    // the hero's bay: a simulated 5-shelf bay drawn in 3D, with the chosen shelf's lane-by-depth grid below it
+    (function(){
+      const cv=document.querySelector("#bay3d"),grid=document.querySelector(".shelf-grid"),name=document.querySelector("#shelf-name"),btns=[...document.querySelectorAll(".shelf-picker button")];
+      if(!cv||!grid||!cv.getContext)return;
+      const LANES=10,ROWS=6,N=5,cells=[...grid.children];
+      btns.forEach((b,i)=>b.dataset.n=i+1);
+      // shelves[s][depth][lane], depth 0 = front; shelf 3 is the grid written in the page (its top row is the back)
+      let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+      const shelves=[...Array(N)].map((_,s)=>{
+        if(s===2)return [...Array(ROWS)].map((_,d)=>[...Array(LANES)].map((_,l)=>cells[(ROWS-1-d)*LANES+l].classList[1]));
+        const sh=[...Array(ROWS)].map(()=>Array(LANES).fill("stocked"));
+        for(let l=0;l<LANES;l++){const r=rnd(),fill=r<.55?ROWS:r<.8?4+Math.floor(rnd()*2):r<.95?1+Math.floor(rnd()*3):0;for(let d=fill;d<ROWS;d++)sh[d][l]="gap"}
+        const u=Math.floor(rnd()*LANES),k=1+Math.floor(rnd()*3);for(let d=ROWS-k;d<ROWS;d++){sh[d][u]="unknown";if(u+1<LANES&&rnd()<.5)sh[d][u+1]="unknown"}
+        return sh});
+      let sel=2,auto=true,timer=null;
+      const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+      const H=.5,DX=.25,DY=.12,SLOPE=.08,STEP=1.52; // box height, depth-row offset on screen, lane rise, shelf spacing (lane widths)
+      function draw(){
+        const w=cv.clientWidth,h=cv.clientHeight,r=devicePixelRatio||1;if(!w)return;
+        cv.width=w*r;cv.height=h*r;const g=cv.getContext("2d");g.setTransform(r,0,0,r,0,0);g.clearRect(0,0,w,h);
+        const u=Math.min(w/(LANES+ROWS*DX+2.2),h/(N*STEP+ROWS*DY+SLOPE*LANES+.9)),ox=w/2-(LANES+ROWS*DX)*u/2+.5*u,oy=h-.55*u;
+        const P=(x,y,z,s)=>[ox+(x+z*DX)*u,oy-(y+s*STEP+z*DY-x*SLOPE)*u];
+        const poly=(pts,fill,stroke)=>{g.beginPath();pts.forEach((p,i)=>i?g.lineTo(p[0],p[1]):g.moveTo(p[0],p[1]));g.closePath();if(fill){g.fillStyle=fill;g.fill()}if(stroke){g.strokeStyle=stroke;g.stroke()}};
+        // [front, top, side] per status; shelves not chosen are drawn in solid muted colours so they don't smear into each other
+        const C={stocked:["#51e6b0","#a3f2d5","#2f9c77"],unknown:["#3f4a47","#56625e","#2f3735"]},Cdim={stocked:["#1d4a3c","#25604d","#163a2f"],unknown:["#252d2b","#2d3633","#1d2422"]};
+        for(let s=0;s<N;s++){
+          const row=N-1-s,on=row===sel,pal=on?C:Cdim;g.lineWidth=1;
+          // back panel and board
+          poly([P(-.1,0,ROWS+.1,s),P(LANES+.1,0,ROWS+.1,s),P(LANES+.1,STEP-.12,ROWS+.1,s),P(-.1,STEP-.12,ROWS+.1,s)],"#0c1613","rgba(181,214,202,.12)");
+          poly([P(-.1,0,0,s),P(LANES+.1,0,0,s),P(LANES+.1,0,ROWS+.1,s),P(-.1,0,ROWS+.1,s)],"#16241f","rgba(181,214,202,.22)");
+          for(let d=ROWS-1;d>=0;d--)for(let l=LANES-1;l>=0;l--){
+            const st=shelves[row][d][l],x0=l+.1,x1=l+.9,z0=d+.1,z1=d+.9;
+            if(st==="gap"){poly([P(x0,0,z0,s),P(x1,0,z0,s),P(x1,0,z1,s),P(x0,0,z1,s)],on?"rgba(255,127,104,.4)":"#3a2622",on?"#ff7f68":"#5a3a33");continue}
+            const [f,t,sd]=pal[st]||pal.stocked;
+            poly([P(x0,0,z0,s),P(x0,0,z1,s),P(x0,H,z1,s),P(x0,H,z0,s)],sd);
+            poly([P(x0,H,z0,s),P(x1,H,z0,s),P(x1,H,z1,s),P(x0,H,z1,s)],t);
+            poly([P(x0,0,z0,s),P(x1,0,z0,s),P(x1,H,z0,s),P(x0,H,z0,s)],f,st==="unknown"&&on?"rgba(160,175,170,.6)":"rgba(5,17,13,.35)");
+          }
+          poly([P(-.1,0,0,s),P(LANES+.1,0,0,s),P(LANES+.1,-.12,0,s),P(-.1,-.12,0,s)],on?css("--mint"):"#23332e");
+          g.fillStyle=on?css("--mint"):css("--faint");g.font="800 "+Math.max(10,.42*u)+"px Manrope,sans-serif";g.textAlign="right";
+          const lp=P(-.35,.25,0,s);g.fillText(String(row+1),lp[0],lp[1]);
+        }
+        // the bay's two front posts
+        [-.16,LANES+.04].forEach(x=>poly([P(x,-.12,0,0),P(x+.12,-.12,0,0),P(x+.12,N*STEP-.12,0,0),P(x,N*STEP-.12,0,0)],"#2a3b36"));
+      }
+      function pick(i,user){
+        sel=i;if(user){auto=false;clearInterval(timer)}
+        btns.forEach((b,j)=>b.setAttribute("aria-pressed",String(j===i)));name.textContent="Shelf "+(i+1)+" of "+N;
+        for(let d=0;d<ROWS;d++)for(let l=0;l<LANES;l++)cells[(ROWS-1-d)*LANES+l].className="slot "+shelves[i][d][l];
+        draw();
+      }
+      btns.forEach((b,i)=>b.addEventListener("click",()=>pick(i,true)));
+      cv.addEventListener("click",e=>{const b=cv.getBoundingClientRect(),f=(e.clientY-b.top)/b.height;pick(Math.min(N-1,Math.max(0,Math.floor(f*N))),true)});
+      if("ResizeObserver" in window)new ResizeObserver(draw).observe(cv);
+      addEventListener("load",draw);draw();
+      // step through the shelves while the bay is on screen, until someone picks one
+      if(!matchMedia("(prefers-reduced-motion: reduce)").matches&&"IntersectionObserver" in window)
+        new IntersectionObserver(es=>es.forEach(e=>{clearInterval(timer);if(e.isIntersecting&&auto)timer=setInterval(()=>pick((sel+1)%N),3200)})).observe(cv);
+    })();
   </script>
 </body>
 </html>
